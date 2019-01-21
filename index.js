@@ -6,14 +6,6 @@ const http = require('http');
 //const port = 3000  
 const PORT = process.env.PORT || 3000
 
-/*
-const server = http.createServer((req,res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
-*/
-
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -28,12 +20,9 @@ app.get('/', (request, response) => {
 app.get('/product', db.getProduct)
 app.get('/users/:id', db.getUserById)
 app.post('/product', db.createProduct)
-app.put('/users/:id', db.updateUser)
+app.put('/product/:id', db.updateProduct)
 app.delete('/users/:id', db.deleteUser)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`)
 })
-
-//node index.js
-//App running on port 3000.
