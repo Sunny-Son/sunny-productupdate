@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
 const http = require('http');
-//const port = 3000
+//const port = 3000  
 const PORT = process.env.PORT || 3000
 
 /*
@@ -25,7 +25,7 @@ app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
-app.get('/users', db.getUsers)
+app.get('/product', db.getProduct)
 app.get('/users/:id', db.getUserById)
 app.post('/users', db.createUser)
 app.put('/users/:id', db.updateUser)

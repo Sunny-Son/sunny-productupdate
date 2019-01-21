@@ -1,13 +1,13 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'hebuultvcnxjsn',
-  host: 'ec2-54-235-68-3.compute-1.amazonaws.com',
-  database: 'd1j7ae3or2qugt',
-  password: '55f0fe093ceee1990baac29002fa7da6b337ecbb92e525c54fcfe5fbe4d366bd',
+  user: 'gthysnmmpsafap',
+  host: 'ec2-54-225-89-195.compute-1.amazonaws.com',
+  database: 'd84dr7o4jk38a1',
+  password: '1ad745beee17c2eec7aedd5ae11429e511b7ba28e3578018588e52d339107e93',
   port: 5432,
 })
-const getUsers = (request, response) => {
-  pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+const getProduct = (request, response) => {
+  pool.query('SELECT * FROM product ORDER BY id ASC', (error, results) => {
     if (error) {
       throw error
     }
@@ -65,7 +65,7 @@ const deleteUser = (request, response) => {
 }
 
 module.exports = {
-  getUsers,
+  getProduct,
   getUserById,
   createUser,
   updateUser,
