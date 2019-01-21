@@ -27,7 +27,7 @@ const getUserById = (request, response) => {
 }
 
 const createProduct = (request, response) => {
-  const { name, email } = request.body
+  const { productcode, product_name, product_description, product_category } = request.body
 
   pool.query('INSERT INTO product (productcode, product_name, product_description, product_category) VALUES ($1, $2, $3, $5)', [productcode, product_name, product_description, product_category], (error, results) => {
     if (error) {
