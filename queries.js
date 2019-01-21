@@ -39,16 +39,16 @@ const createProduct = (request, response) => {
 
 const updateProduct = (request, response) => {
   const id = parseInt(request.params.id)
-  const { productcode, product_name, product_description, product_category } = request.body
+  const { name, email } = request.body
 
   pool.query(
-    'UPDATE product SET productcode = $1, product_name = $2, product_description = $3, product_category = $4 WHERE id = $5',
-    [productcode, product_name, product_description, product_category, id],
+    'UPDATE users SET name = $1, email = $2 WHERE id = $3',
+    [name, email, id],
     (error, results) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Product modified with ID: ${id}`)
+      response.status(200).send(`User modified with ID: ${id}`)
     }
   )
 }
