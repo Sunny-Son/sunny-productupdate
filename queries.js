@@ -26,14 +26,14 @@ const getUserById = (request, response) => {
   })
 }
 
-const createUser = (request, response) => {
+const createProduct = (request, response) => {
   const { name, email } = request.body
 
-  pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
+  pool.query('INSERT INTO product (productcode, product_name, product_description, product_category) VALUES ($1, $2, $3, $5)', [productcode, product_name, product_description, product_category], (error, results) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
+    response.status(201).send(`Product added with ID: ${result.insertId}`)
   })
 }
 
@@ -67,7 +67,7 @@ const deleteUser = (request, response) => {
 module.exports = {
   getProduct,
   getUserById,
-  createUser,
+  createProduct,
   updateUser,
   deleteUser,
 }
